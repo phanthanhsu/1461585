@@ -15,7 +15,7 @@ namespace DOANWEB2.Controllers
         }
 
         // GET: DetailProduct/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int idSanPham)
         {
             return View();
         }

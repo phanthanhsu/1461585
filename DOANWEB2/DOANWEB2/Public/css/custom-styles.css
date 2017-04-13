@@ -275,7 +275,7 @@ margin-bottom: 10px;}
 
 .search{
     background-image:url(../img/tb_Search2.png);
-    margin: auto;
+    margin: 10px auto;
     height: 40px;
     width: 640px;
 }
