@@ -159,6 +159,5 @@ E:\1461585\DOANWEB2\DOANWEB2\bin\Microsoft.Owin.Security.OAuth.xml
 E:\1461585\DOANWEB2\DOANWEB2\bin\Microsoft.Owin.Security.Google.xml
 E:\1461585\DOANWEB2\DOANWEB2\bin\Microsoft.Owin.Security.Twitter.xml
 E:\1461585\DOANWEB2\DOANWEB2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\1461585\DOANWEB2\DOANWEB2\obj\Debug\DOANWEB2.csprojResolveAssemblyReference.cache
 E:\1461585\DOANWEB2\DOANWEB2\obj\Debug\DOANWEB2.dll
 E:\1461585\DOANWEB2\DOANWEB2\obj\Debug\DOANWEB2.pdb
