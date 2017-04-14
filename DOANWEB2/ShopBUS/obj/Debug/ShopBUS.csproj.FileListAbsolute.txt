@@ -1,0 +1,6 @@
+E:\1461585\DOANWEB2\ShopBUS\bin\Debug\ShopBUS.dll.config
+E:\1461585\DOANWEB2\ShopBUS\bin\Debug\ShopBUS.dll
+E:\1461585\DOANWEB2\ShopBUS\bin\Debug\ShopBUS.pdb
+E:\1461585\DOANWEB2\ShopBUS\obj\Debug\ShopBUS.csprojResolveAssemblyReference.cache
+E:\1461585\DOANWEB2\ShopBUS\obj\Debug\ShopBUS.dll
+E:\1461585\DOANWEB2\ShopBUS\obj\Debug\ShopBUS.pdb

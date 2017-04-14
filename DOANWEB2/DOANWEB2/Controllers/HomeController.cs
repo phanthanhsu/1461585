@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,11 +14,11 @@ namespace DOANWEB2.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Product()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var db = new ShopConnectionDB();
+            IEnumerable<SanPham> dsSP = db.Query<SanPham>("Select * From SanPham");
+            return View(dsSP);
         }
 
         public ActionResult Contact()
