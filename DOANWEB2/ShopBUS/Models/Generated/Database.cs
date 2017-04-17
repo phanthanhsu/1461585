@@ -255,6 +255,12 @@ namespace ShopConnection
 
 
 
+
+
+		[Column] public string HinhAnh { get; set; }
+
+
+
 	}
 
     
