@@ -274,12 +274,21 @@ margin-bottom: 10px;}
 .main-title ul li {width:100%;}
 
 .search{
-    background-image:url(../img/tb_Search2.png);
+    background-image:url(../img/tb_Search.png);
     margin: 10px auto;
     height: 40px;
-    width: 640px;
+    width: 100%;
+    max-width: 640px;
 }
 #tb_search{
-    width: 560px;
-    height: 40px;
+    width: 88%;
+    height: 38px;
+    margin-top: 1px;
+    margin-left: 1px;
+}
+.product{
+    margin-top: 10px;
+}
+.product h1{
+    color: darkviolet;
 }
