@@ -1,0 +1,10 @@
+﻿@model ShopConnection.SanPham
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/LayoutIndex.cshtml";
+}
+
+<h1>@Model.TenSanPham</h1>
+<h3>@Model.GiaTien</h3>
+<h3>@Model.XuatXu</h3>
+<img src="~/Public/images/@Model.HinhAnh" alt="" />

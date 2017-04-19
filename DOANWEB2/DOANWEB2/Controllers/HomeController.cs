@@ -11,7 +11,9 @@ namespace DOANWEB2.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var db = new ShopConnectionDB();
+            IEnumerable<SanPham> dsSP = db.Query<SanPham>("SELECT * FROM (SELECT TOP 3 * FROM SanPham ORDER BY MaSanPham DESC) SQ ORDER BY MaSanPham ASC");
+            return View(dsSP);
         }
 
         public ActionResult Product()

@@ -19,12 +19,12 @@
             {
                 <li>
                     <div class="item">
-                        <h5>@Html.DisplayFor(s => item.MaSanPham)</h5>
+                        <h5>@Html.DisplayFor(s => item.GiaTien) đ</h5>
                         <div class="grow">
                             <img src="~/Public/images/@Html.DisplayFor(s => item.HinhAnh)" alt="" />
                         </div>
                         <p>@Html.DisplayFor(s => item.TenSanPham)</p>
-                        <p><a href="#" class="more">Xem thêm <i class="fw-icon-chevron-right"></i></a></p>
+                        <p><a href="~/ListProduct/Details/@item.MaSanPham" class="more">Xem thêm <i class="fw-icon-chevron-right"></i></a></p>
                     </div>
                 </li>
             }
