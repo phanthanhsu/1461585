@@ -319,6 +319,7 @@
     <Content Include="Views\Shared\LayoutIndex.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\ListProduct\Details.cshtml" />
+    <Content Include="Views\Shared\_PartialMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

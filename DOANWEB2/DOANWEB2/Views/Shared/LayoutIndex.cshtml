@@ -53,13 +53,7 @@
                             </li>
                             <li class="dropdown ">
                                 <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Danh Mục Sản Phẩm <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Đồng hồ</a></li>
-                                    <li><a href="#">Máy làm tóc</a></li>
-                                    <li><a href="#">Kính thời trang</a></li>
-                                    <li><a href="#">Nước hoa Nam & Nữ</a></li>
-                                    <li><a href="#">Trang bị phượt</a></li>
-                                </ul>
+                                @Html.Partial("_PartialMenu", ShopBUS.BUS.ListMenu())
                             </li>
                             <li>@Html.ActionLink("Khuyến Mãi", "", "")</li>
                             <li>@Html.ActionLink("Chăm Sóc Khách Hàng", "", "")</li>
