@@ -15,6 +15,14 @@ namespace DOANWEB2.Controllers
             return View();
         }
 
+        // GET: ListProduct/ListOfType/5
+        public ActionResult ListOfType(string id)
+        {
+            var db = new ShopConnectionDB();
+            IEnumerable<SanPham> dsSP = db.Query<SanPham>("Select * From SanPham Where MaLoaiSanPham = '" + id + "'");
+            return View(dsSP);
+        }
+
         // GET: ListProduct/Details/5
         public ActionResult Details(string id)
         {

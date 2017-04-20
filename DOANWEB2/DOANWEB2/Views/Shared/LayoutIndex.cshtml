@@ -53,7 +53,7 @@
                             </li>
                             <li class="dropdown ">
                                 <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Danh Mục Sản Phẩm <b class="caret"></b></a>
-                                @Html.Partial("_PartialMenu", ShopBUS.BUS.ListMenu())
+                                @Html.Action("TypeProduct", "Menu")
                             </li>
                             <li>@Html.ActionLink("Khuyến Mãi", "", "")</li>
                             <li>@Html.ActionLink("Chăm Sóc Khách Hàng", "", "")</li>
