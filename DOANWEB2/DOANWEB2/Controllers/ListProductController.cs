@@ -19,7 +19,7 @@ namespace DOANWEB2.Controllers
         public ActionResult ListOfType(string id)
         {
             var db = new ShopConnectionDB();
-            IEnumerable<SanPham> dsSP = db.Query<SanPham>("Select * From SanPham Where MaLoaiSanPham = '" + id + "'");
+            var dsSP = db.Query<SanPham>("Select * From SanPham Where MaLoaiSanPham = @0", id);
             return View(dsSP);
         }
 
