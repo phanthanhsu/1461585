@@ -5,8 +5,25 @@
 }
 
 <div class="product">
-    <h1>@Model.TenSanPham</h1>
-    <h3>@Model.GiaTien</h3>
-    <h3>@Model.XuatXu</h3>
-    <img src="~/Public/images/@Model.HinhAnh" alt="" />
+    <div class="image-product">
+        <img src="~/Public/images/@Model.HinhAnh" alt="" />
+        @Html.Partial("_PartialMenu", ShopBUS.BUS.ListImg(Model.MaSanPham))
+    </div>
+    <div class="info-product">
+        <h1>@Model.TenSanPham</h1>
+        <br/>
+        <h3>@Model.GiaTien vnđ</h3>
+        <h3>Xuất xứ: @Model.XuatXu</h3>
+        <br />
+        <div class="dt-buynow">
+            <span>Chọn mua:</span>
+            <br />
+            <form>
+                <span> - Số lượng </span>
+                <input type="number" min="1" max="20" maxlength="2" name="txtSoLuong" value="1">
+                <br />
+                <input type="submit" class="buynow" value="Đặt mua" />
+            </form>
+        </div>
+    </div>
 </div>

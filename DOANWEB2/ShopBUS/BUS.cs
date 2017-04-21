@@ -16,5 +16,12 @@ namespace ShopBUS
                 return db.Query<LoaiSanPham>("Select * From LoaiSanPham");
             }
         }
+        public static IEnumerable<HinhAnh> ListImg(string maSP)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                return db.Query<HinhAnh>("Select * From HinhAnh Where MaSanPham = @0", maSP);
+            }
+        }
     }
 }

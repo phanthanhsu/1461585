@@ -1,7 +1,7 @@
-﻿@model IEnumerable<ShopConnection.LoaiSanPham>
-<ul class="dropdown-menu">
+﻿@model IEnumerable<ShopConnection.HinhAnh>
+<ul class="list-img" >
     @foreach (var item in Model)
     {
-        <li>@Html.ActionLink(item.TenLoaiSanPham, "ListOFType", "ListProduct", new { id = item.MaLoaiSP }, null)</li>
+        <li id="img-sub"><img src="~/Public/images/@item.URL" alt="" /></li>
     }
 </ul>
