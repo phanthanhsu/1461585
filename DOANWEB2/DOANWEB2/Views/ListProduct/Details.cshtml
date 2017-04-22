@@ -5,25 +5,35 @@
 }
 
 <div class="product">
-    <div class="image-product">
-        <img src="~/Public/images/@Model.HinhAnh" alt="" />
-        @Html.Partial("_PartialMenu", ShopBUS.BUS.ListImg(Model.MaSanPham))
-    </div>
-    <div class="info-product">
-        <h1>@Model.TenSanPham</h1>
-        <br/>
-        <h3>@Model.GiaTien vnđ</h3>
-        <h3>Xuất xứ: @Model.XuatXu</h3>
-        <br />
-        <div class="dt-buynow">
-            <span>Chọn mua:</span>
-            <br />
-            <form>
-                <span> - Số lượng </span>
-                <input type="number" min="1" max="20" maxlength="2" name="txtSoLuong" value="1">
-                <br />
-                <input type="submit" class="buynow" value="Đặt mua" />
-            </form>
+    <div class="col-md-6">
+        <div class="image">
+            <img src="~/Public/images/@Model.HinhAnh" alt="" />
+            <div class="image-more">
+                @Html.Partial("_PartialMenu", ShopBUS.BUS.ListImg(Model.MaSanPham))
+            </div>
         </div>
     </div>
+    <div class="col-md-6">
+        <div class="caption">
+            <div class="name"><h3>@Model.TenSanPham</h3></div>
+            <div class="info">
+                <ul>
+                    <li>Nhà sản xuất: @Model.NhaSanXuat</li>
+                    <li>Xuất xứ: @Model.XuatXu</li>
+                </ul>
+            </div>
+            <div class="price">Giá mới: @Model.GiaTien đ<span>Giá cũ: @(Model.GiaTien.Value+20000) đ</span></div>
+            @*<div class="options">
+                AVAILABLE OPTIONS
+                <select>
+                    <option value="" selected>----Please Select----</option>
+                    <option value="red">RED</option>
+                    <option value="black">BLACK</option>
+                </select>
+            </div>*@
+            <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+            <div class="well"><label>Số lượng: </label> <input class="form-inline quantity" type="number" value="1"><a href="#" class="btn btn-2 ">Đặt hàng</a></div>
+        </div>
+    </div>
+    <div class="clear"></div>
 </div>

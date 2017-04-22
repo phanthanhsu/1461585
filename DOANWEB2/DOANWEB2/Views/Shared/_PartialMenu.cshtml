@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<ShopConnection.HinhAnh>
-<ul class="list-img" >
+
+<ul class="row">
     @foreach (var item in Model)
     {
-        <li id="img-sub"><img src="~/Public/images/@item.URL" alt="" /></li>
+        <li class="col-lg-3 col-sm-3 col-xs-4">
+            <a href="#"><img src="~/Public/images/@item.URL" alt="" /></a>
+        </li>
     }
 </ul>
