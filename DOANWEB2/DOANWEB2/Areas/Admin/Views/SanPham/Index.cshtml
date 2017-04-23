@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ShopConnection.SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminIndex.cshtml";
+}
+
+<table>
+    <tr>
+        <th>Mã Sản Phẩm</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Mô Tả</th>
+        <th>Giá Tiền</th>
+        <th>Xuất Xứ</th>
+        <th>Nhà Sản Xuất</th>
+        <th>Loại Sản Phẩm</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaSanPham</td>
+            <td>@item.TenSanPham</td>
+            <td>@item.MoTa</td>
+            <td>@item.GiaTien đ</td>
+            <td>@item.XuatXu</td>
+            <td>@item.NhaSanXuat</td>
+            <td>@item.MaLoaiSanPham</td>
+        </tr>
+    }
+</table>
