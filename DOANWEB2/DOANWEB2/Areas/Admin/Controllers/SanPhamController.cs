@@ -31,12 +31,12 @@ namespace DOANWEB2.Areas.Admin.Controllers
 
         // POST: Admin/SanPham/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(SanPham sp)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                ShopBUS.BUS.ThemSP(sp);
                 return RedirectToAction("Index");
             }
             catch

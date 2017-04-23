@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminIndex.cshtml";
+}
+
+<div>
+    @using (Html.BeginForm("Create", "SanPham", FormMethod.Post))
+    {
+        <label>Mã Sản Phẩm:</label>
+        <input name="MaSanPham" type="text" placeholder="AB-XXX" required/>
+        <label>Tên Sản Phẩm:</label>
+        <input name="TenSanPham" type="text" placeholder="TÊN SẢN PHẨM" required/>
+        <label>Mô Tả:</label>
+        <input name="MoTa" type="text" placeholder="CK-Editor" />
+        <label>Giá Tiền:</label>
+        <input name="GiaTien" type="number" min="1000" placeholder="vnđ" required/>
+        <label>Xuất Xứ:</label>
+        <input name="XuatXu" type="text" placeholder="Xuất Xứ" required/>
+        <label>Nhà Sản Xuất:</label>
+        <input name="NhaSanXuat" type="text" placeholder="Nhà Sản Xuất" required/>
+        <label>Loại Sản Phẩm:</label>
+        @Html.Partial("_LoaiSP", ShopBUS.BUS.ListMenu())
+        <input type="submit" value="Thêm Sản Phẩm" />
+    }
+</div>

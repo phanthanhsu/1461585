@@ -30,5 +30,12 @@ namespace ShopBUS
                 return db.Query<HinhAnh>("Select * From HinhAnh Where MaSanPham = @0", maSP);
             }
         }
+        public static void ThemSP(SanPham ab)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                db.Insert(ab);
+            }
+        }
     }
 }
