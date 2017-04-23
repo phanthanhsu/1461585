@@ -232,13 +232,16 @@
     <Content Include="Public\fonts\sourcesanspro-bold-webfont.svg" />
     <Content Include="Public\fonts\sourcesanspro-light-webfont.svg" />
     <Content Include="Public\fonts\sourcesanspro-regular-webfont.svg" />
+    <Content Include="Public\img\Add2.png" />
     <Content Include="Public\img\banner-img.png" />
     <Content Include="Public\img\body-bg.jpg" />
     <Content Include="Public\img\border.jpg" />
     <Content Include="Public\img\button-search.png" />
+    <Content Include="Public\img\edit2.png" />
     <Content Include="Public\img\img1.jpg" />
     <Content Include="Public\img\img2.jpg" />
     <Content Include="Public\img\img3.jpg" />
+    <Content Include="Public\img\remove2.png" />
     <Content Include="Public\img\tb_Search.png" />
     <Content Include="Public\js\AnimOnScroll.js" />
     <Content Include="Public\js\bootstrap.js" />

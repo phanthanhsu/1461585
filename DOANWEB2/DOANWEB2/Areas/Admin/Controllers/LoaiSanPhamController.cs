@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace DOANWEB2.Areas.Admin.Controllers
         // GET: Admin/LoaiSanPham
         public ActionResult Index()
         {
-            return View();
+            var db = new ShopConnectionDB();
+            IEnumerable<LoaiSanPham> dsLoaiSP = db.Query<LoaiSanPham>("Select * From LoaiSanPham");
+            return View(dsLoaiSP);
         }
 
         // GET: Admin/LoaiSanPham/Details/5
