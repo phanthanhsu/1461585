@@ -35,6 +35,14 @@ namespace DOANWEB2.Areas.Admin.Controllers
         {
             try
             {
+                var hpf = HttpContext.Request.Files[0];
+                if(hpf.ContentLength > 0)
+                {
+                    string name = sp.MaSanPham + ".png";
+                    string fullName = "~/Public/images/" + name;
+                    hpf.SaveAs(Server.MapPath(fullName));
+                    sp.HinhAnh = sp.MaSanPham + ".png";
+                }
                 // TODO: Add insert logic here
                 ShopBUS.BUS.ThemSP(sp);
                 return RedirectToAction("Index");

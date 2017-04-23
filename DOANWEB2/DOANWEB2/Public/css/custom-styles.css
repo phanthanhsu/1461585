@@ -410,7 +410,7 @@ header .form-search button:hover {color: #eee;}
 .products:after, .products:before{clear: both; content: '\0020'; display: block; visibility: hidden; width: 0; height: 0;}
 .products .product{margin-bottom: 50px;}
 
-.product {}
+.product {margin-top: 15px;}
 .product:after, .product:before{clear: both; content: '\0020'; display: block; visibility: hidden; width: 0; height: 0;}
 .product .image-more {margin-top: 15px;}
 .product .image-more img{border: 1px solid #DDD;max-height: 85px;margin-bottom: 10px;}
@@ -541,7 +541,7 @@ th {
     background-color: #ffffff;
     color: #660096;
 }
-input[type=text], input[type=number], select {
+input[type=text], input[type=number], input[type=file], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

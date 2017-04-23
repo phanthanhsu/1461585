@@ -3,9 +3,20 @@
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminIndex.cshtml";
 }
+<script type="text/javascript">
 
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    };
+
+</script>
 <div>
-    @using (Html.BeginForm("Create", "SanPham", FormMethod.Post))
+    @using (Html.BeginForm("Create", "SanPham", FormMethod.Post, new { enctype =  "multipart/form-data" }))
     {
         <label>Mã Sản Phẩm:</label>
         <input name="MaSanPham" type="text" placeholder="AB-XXX" required/>
@@ -21,6 +32,9 @@
         <input name="NhaSanXuat" type="text" placeholder="Nhà Sản Xuất" required/>
         <label>Loại Sản Phẩm:</label>
         @Html.Partial("_LoaiSP", ShopBUS.BUS.ListMenu())
+        <label>Hình Mặc Định:</label>
+        <input name="HinhAnh" id="uploadImage" type="File" onchange="PreviewImage();" />
+        <img id="uploadPreview" style="width: 200px;" />
         <input type="submit" value="Thêm Sản Phẩm" />
     }
 </div>
