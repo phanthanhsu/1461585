@@ -86,5 +86,26 @@ namespace ShopBUS
                 db.Delete(sp);
             }
         }
+        public static void ThemLoaiSP(LoaiSanPham ab)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                db.Insert(ab);
+            }
+        }
+        public static void DeleteLoaiSP(LoaiSanPham lsp)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                db.Delete(lsp);
+            }
+        }
+        public static LoaiSanPham LSp(string id)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                return db.SingleOrDefault<LoaiSanPham>("Select * From LoaiSanPham Where MaLoaiSP = @0", id);
+            }
+        }
     }
 }

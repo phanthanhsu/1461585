@@ -12,8 +12,7 @@ namespace DOANWEB2.Areas.Admin.Controllers
         // GET: Admin/LoaiSanPham
         public ActionResult Index()
         {
-            var db = new ShopConnectionDB();
-            IEnumerable<LoaiSanPham> dsLoaiSP = db.Query<LoaiSanPham>("Select * From LoaiSanPham");
+            var dsLoaiSP = ShopBUS.BUS.ListMenu();
             return View(dsLoaiSP);
         }
 
@@ -31,12 +30,12 @@ namespace DOANWEB2.Areas.Admin.Controllers
 
         // POST: Admin/LoaiSanPham/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(LoaiSanPham lSp)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                ShopBUS.BUS.ThemLoaiSP(lSp);
                 return RedirectToAction("Index");
             }
             catch
@@ -68,9 +67,11 @@ namespace DOANWEB2.Areas.Admin.Controllers
         }
 
         // GET: Admin/LoaiSanPham/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            return View();
+            var lSP = ShopBUS.BUS.LSp(id);
+            ShopBUS.BUS.DeleteLoaiSP(lSP);
+            return RedirectToAction("Index");
         }
 
         // POST: Admin/LoaiSanPham/Delete/5

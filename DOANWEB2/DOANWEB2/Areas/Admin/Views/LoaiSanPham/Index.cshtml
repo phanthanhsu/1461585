@@ -8,7 +8,7 @@
     <tr>
         <th>Mã Loại Sản Phẩm</th>
         <th>Tên Loại Sản Phẩm</th>
-        <th style="text-align: center;"><a href="#"><img src="~/Public/img/Add2.png" style="width: 20px;" /></a></th>
+        <th style="text-align: center;"><a href="~/Admin/LoaiSanPham/Create"><img src="~/Public/img/Add2.png" style="width: 20px;" /></a></th>
     </tr>
     @foreach (var item in Model)
     {
@@ -18,7 +18,7 @@
             <td style="text-align: center;">
                 <a href="#"><img src="~/Public/img/edit2.png" style="width: 20px;" title="Sửa" /></a>
                 &nbsp;
-                <a href="#"><img src="~/Public/img/remove2.png" style="width: 20px;" title="Xoá" /></a>
+                <a href="~/Admin/LoaiSanPham/Delete/@item.MaLoaiSP.Trim()"><img src="~/Public/img/remove2.png" style="width: 20px;" title="Xoá" /></a>
             </td>
         </tr>
     }
