@@ -44,6 +44,34 @@ namespace ShopBUS
                 db.Insert(ab);
             }
         }
+        public static HinhAnh Hinh(int id)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                return db.SingleOrDefault<HinhAnh>("Select * From HinhAnh Where MaHinh = @0", id);
+            }
+        }
+        public static void ThemAnh(HinhAnh ab)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                db.Insert(ab);
+            }
+        }
+        public static void XoaAnh(HinhAnh ab)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                db.Delete(ab);
+            }
+        }
+        public static int DemAnh(string id)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                return db.ExecuteScalar<int>("select count(*) from HinhAnh Where MaSanPham = @0", id);
+            }
+        }
         public static void EditSP(string id, SanPham ab)
         {
             using (var db = new ShopConnectionDB())

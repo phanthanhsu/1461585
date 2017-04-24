@@ -17,11 +17,46 @@ namespace DOANWEB2.Areas.Admin.Controllers
             return View(dsSP);
         }
 
-        // GET: Admin/SanPham/Details/5
-        public ActionResult Details(int id)
+        // GET: Admin/SanPham/DelImg/5
+        public ActionResult DelImg(int id)
         {
-            return View();
+            var sp = ShopBUS.BUS.Hinh(id);
+            ShopBUS.BUS.XoaAnh(sp);
+            return RedirectToAction("ImgOfSP", new { id = sp.MaSanPham.Trim() });
         }
+
+        // GET: Admin/SanPham/ImgOfSP/5
+        public ActionResult ImgOfSP(string id)
+        {
+            var DSImg = ShopBUS.BUS.ListImg(id);
+            return View(DSImg);
+        }
+
+        // POST: Admin/SanPham/ImgOfSP/5
+        [HttpPost]
+        public ActionResult ImgOfSP(string id, HinhAnh ha)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+                var hpf = HttpContext.Request.Files[0];
+                if (hpf.ContentLength > 0)
+                {
+                    int sl = ShopBUS.BUS.DemAnh(id) + 1;
+                    string name = id + "_00" + sl + ".png";
+                    string fullName = "~/Public/images/" + name;
+                    hpf.SaveAs(Server.MapPath(fullName));
+                    ha.URL = name;
+                    ha.MaSanPham = id;
+                    ShopBUS.BUS.ThemAnh(ha);
+                }
+                return RedirectToAction("ImgOfSP", new { id });
+            }
+            catch
+            {
+                return View();
+            }
+}
 
         // GET: Admin/SanPham/Create
         public ActionResult Create()
@@ -38,13 +73,17 @@ namespace DOANWEB2.Areas.Admin.Controllers
                 var hpf = HttpContext.Request.Files[0];
                 if(hpf.ContentLength > 0)
                 {
-                    string name = sp.MaSanPham + ".png";
+                    string name = sp.MaSanPham + "_001.png";
                     string fullName = "~/Public/images/" + name;
                     hpf.SaveAs(Server.MapPath(fullName));
-                    sp.HinhAnh = sp.MaSanPham + ".png";
+                    sp.HinhAnh = name;
                 }
+                var ha = new HinhAnh();
+                ha.URL = sp.HinhAnh;
+                ha.MaSanPham = sp.MaSanPham;
                 // TODO: Add insert logic here
                 ShopBUS.BUS.ThemSP(sp);
+                ShopBUS.BUS.ThemAnh(ha);
                 return RedirectToAction("Index");
             }
             catch
@@ -69,10 +108,10 @@ namespace DOANWEB2.Areas.Admin.Controllers
                 var hpf = HttpContext.Request.Files[0];
                 if (hpf.ContentLength > 0)
                 {
-                    string name = sp.MaSanPham + ".png";
+                    string name = sp.MaSanPham.Trim() + "_001.png";
                     string fullName = "~/Public/images/" + name;
                     hpf.SaveAs(Server.MapPath(fullName));
-                    sp.HinhAnh = sp.MaSanPham + ".png";
+                    sp.HinhAnh = name;
                 }
                 // TODO: Add update logic here
                 ShopBUS.BUS.EditSP(id, sp);
