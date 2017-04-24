@@ -54,19 +54,28 @@ namespace DOANWEB2.Areas.Admin.Controllers
         }
 
         // GET: Admin/SanPham/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var sp = ShopBUS.BUS.SanPham(id);
+            return View(sp);
         }
 
         // POST: Admin/SanPham/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, SanPham sp)
         {
             try
             {
+                var hpf = HttpContext.Request.Files[0];
+                if (hpf.ContentLength > 0)
+                {
+                    string name = sp.MaSanPham + ".png";
+                    string fullName = "~/Public/images/" + name;
+                    hpf.SaveAs(Server.MapPath(fullName));
+                    sp.HinhAnh = sp.MaSanPham + ".png";
+                }
                 // TODO: Add update logic here
-
+                ShopBUS.BUS.EditSP(id, sp);
                 return RedirectToAction("Index");
             }
             catch
@@ -76,9 +85,11 @@ namespace DOANWEB2.Areas.Admin.Controllers
         }
 
         // GET: Admin/SanPham/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            return View();
+            var sp = ShopBUS.BUS.SanPham(id);
+            ShopBUS.BUS.DeleteSP(sp);
+            return RedirectToAction("Index");
         }
 
         // POST: Admin/SanPham/Delete/5

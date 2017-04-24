@@ -13,22 +13,24 @@
         <th>Xuất Xứ</th>
         <th>Nhà Sản Xuất</th>
         <th>Loại Sản Phẩm</th>
-        <th style="text-align: center;" ><a href="~/Admin/SanPham/Create"><img src="~/Public/img/Add2.png" style="width: 20px;" /></a></th>
+        <th style="text-align: center;" ><a href="~/Admin/SanPham/Create"><img src="~/Public/img/Add2.png" style="width: 20px;" title="Thêm Sản Phẩm" /></a></th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.MaSanPham</td>
             <td>@item.TenSanPham</td>
-            <td>@item.MoTa</td>
+            <td>.....</td>
             <td>@item.GiaTien đ</td>
             <td>@item.XuatXu</td>
             <td>@item.NhaSanXuat</td>
             <td style="text-align: center;" >@item.MaLoaiSanPham</td>
             <td style="text-align: center;" >
-                <a href="#"><img src="~/Public/img/edit2.png" style="width: 20px;" title="Sửa" /></a>
+                <a href="~/Admin/SanPham/Edit/@item.MaSanPham"><img src="~/Public/img/edit2.png" style="width: 20px;" title="Sửa" /></a>
                 &nbsp;
-                <a href="#"><img src="~/Public/img/remove2.png" style="width: 20px;" title="Xoá" /></a>
+                <a href="~/Admin/SanPham/Delete/@item.MaSanPham"><img src="~/Public/img/remove2.png" style="width: 20px;" title="Xoá" /></a>
+                &nbsp;
+                <a href="#"><img src="~/Public/img/Add_image.svg" style="width: 20px;" title="Thêm Ảnh" /></a>
             </td>
         </tr>
     }
