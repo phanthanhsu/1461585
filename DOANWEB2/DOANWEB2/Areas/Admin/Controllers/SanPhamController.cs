@@ -66,6 +66,7 @@ namespace DOANWEB2.Areas.Admin.Controllers
 
         // POST: Admin/SanPham/Create
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(SanPham sp)
         {
             try
@@ -96,13 +97,18 @@ namespace DOANWEB2.Areas.Admin.Controllers
         public ActionResult Edit(string id)
         {
             var sp = ShopBUS.BUS.SanPham(id);
+            ViewBag.MaLoaiSanPham = new SelectList(ShopBUS.BUS.ListMenu(), "MaLoaiSP", "TenLoaiSanPham",sp.MaLoaiSanPham);
             return View(sp);
         }
 
         // POST: Admin/SanPham/Edit/5
+        
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(string id, SanPham sp)
         {
+            var spTam = ShopBUS.BUS.SanPham(id);
+            sp.HinhAnh = spTam.HinhAnh;
             try
             {
                 var hpf = HttpContext.Request.Files[0];

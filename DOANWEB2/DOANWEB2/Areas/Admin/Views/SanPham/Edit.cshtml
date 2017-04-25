@@ -13,7 +13,6 @@
             document.getElementById("uploadPreview").src = oFREvent.target.result;
         };
     };
-
 </script>
 <div>
     @using (Html.BeginForm("Edit", "SanPham", FormMethod.Post, new { id = Model.MaSanPham, enctype = "multipart/form-data" }))
@@ -23,7 +22,7 @@
         <label>Tên Sản Phẩm:</label>
         <input name="TenSanPham" type="text" placeholder="TÊN SẢN PHẨM" value="@Model.TenSanPham" required />
         <label>Mô Tả:</label>
-        <input name="MoTa" type="text" placeholder="CK-Editor" />
+        <textarea class="ckeditor" name="MoTa" style="width: 300px; height: 150px; max-width: 100px; max-height: 600px; " rows="4" cols="30">@Model.MoTa</textarea>
         <label>Giá Tiền:</label>
         <input name="GiaTien" type="number" min="1000" placeholder="vnđ" required value="@Model.GiaTien" />
         <label>Xuất Xứ:</label>
@@ -31,9 +30,10 @@
         <label>Nhà Sản Xuất:</label>
         <input name="NhaSanXuat" type="text" placeholder="Nhà Sản Xuất" required value="@Model.NhaSanXuat" />
         <label>Loại Sản Phẩm:</label>
-        @Html.Partial("_LoaiSP", ShopBUS.BUS.ListMenu())
+        @*@Html.Partial("_LoaiSP", ShopBUS.BUS.ListMenu())*@
+        @Html.DropDownList("MaLoaiSanPham", null, new {  })
         <label>Hình Mặc Định:</label>
-        <input name="HinhAnh" id="uploadImage" type="File" onchange="PreviewImage();" value="@Model.HinhAnh" />
+        <input name="HinhAnh" id="uploadImage" type="File" onchange="PreviewImage();" />
         <img id="uploadPreview" src="~/Public/images/@Model.HinhAnh" style="width: 200px;" />
         <input type="submit" value="Hoàn Tất" />
     }
