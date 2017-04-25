@@ -1,4 +1,5 @@
-﻿using ShopConnection;
+﻿using PagedList;
+using ShopConnection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,9 @@ namespace DOANWEB2.Controllers
             return View(dsSP);
         }
 
-        public ActionResult Product()
+        public ActionResult Product(int page = 1, int pagesize = 6)
         {
-            var db = new ShopConnectionDB();
-            IEnumerable<SanPham> dsSP = db.Query<SanPham>("Select * From SanPham");
+            var dsSP = ShopBUS.BUS.ListSP().ToPagedList(page, pagesize);
             return View(dsSP);
         }
 

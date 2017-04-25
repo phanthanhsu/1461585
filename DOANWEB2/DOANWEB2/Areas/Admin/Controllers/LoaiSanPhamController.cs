@@ -45,19 +45,20 @@ namespace DOANWEB2.Areas.Admin.Controllers
         }
 
         // GET: Admin/LoaiSanPham/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var lSP = ShopBUS.BUS.LSp(id);
+            return View(lSP);
         }
 
         // POST: Admin/LoaiSanPham/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, LoaiSanPham lSp)
         {
             try
             {
                 // TODO: Add update logic here
-
+                ShopBUS.BUS.EditLoaiSP(id ,lSp);
                 return RedirectToAction("Index");
             }
             catch

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ShopConnection.SanPham>
+﻿@model PagedList.IPagedList<ShopConnection.SanPham>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Product";
     Layout = "~/Views/Shared/LayoutIndex.cshtml";
@@ -30,5 +31,8 @@
             }
         </ul>
     </div>
+    <ul class="pagination">
+        @Html.PagedListPager(Model, page => Url.Action("Product", new { page }))
+    </ul>
 </div>
 <div class="ruler"></div>

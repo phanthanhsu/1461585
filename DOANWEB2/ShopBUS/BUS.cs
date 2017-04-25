@@ -27,7 +27,7 @@ namespace ShopBUS
         {
             using (var db = new ShopConnectionDB())
             {
-                return db.Query<LoaiSanPham>("Select * From LoaiSanPham");
+                return db.Query<LoaiSanPham>("Select * From LoaiSanPham Where TinhTrang = 1");
             }
         }
         public static IEnumerable<HinhAnh> ListImg(string maSP)
@@ -88,6 +88,7 @@ namespace ShopBUS
         }
         public static void ThemLoaiSP(LoaiSanPham ab)
         {
+            ab.TinhTrang = 1;
             using (var db = new ShopConnectionDB())
             {
                 db.Insert(ab);
@@ -95,9 +96,17 @@ namespace ShopBUS
         }
         public static void DeleteLoaiSP(LoaiSanPham lsp)
         {
+            lsp.TinhTrang = 0;
             using (var db = new ShopConnectionDB())
             {
-                db.Delete(lsp);
+                db.Update(lsp);
+            }
+        }
+        public static void EditLoaiSP(string id, LoaiSanPham lsp)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                db.Update(lsp, id);
             }
         }
         public static LoaiSanPham LSp(string id)
