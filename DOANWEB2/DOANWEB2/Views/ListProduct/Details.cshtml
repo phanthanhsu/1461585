@@ -6,12 +6,13 @@
 
 <div class="product">
     <div class="col-md-6">
-        <div class="image">
+        @Html.Partial("_PartialHinhSP", ShopBUS.BUS.ListImg(Model.MaSanPham))
+        @*<div class="image">
             <img src="~/Public/images/@Model.HinhAnh" alt="" />
             <div class="image-more">
                 @Html.Partial("_PartialMenu", ShopBUS.BUS.ListImg(Model.MaSanPham))
             </div>
-        </div>
+        </div>*@
     </div>
     <div class="col-md-6">
         <div class="caption">
